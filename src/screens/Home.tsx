@@ -6,14 +6,11 @@ const Home = () => {
         <View style={style.container}>
             <Title />
 
-            <View style={style.bannerCon}>
-                <Image source={{
-                    uri: "https://storyset.com/illustration/online-test/amico#1EEF59FF&hide=&hide=complete"
-                }}
-                    resizeMode='contain'
-                    style={style.banner}
-                />
-            </View>
+            <Image
+                source={require('../assets/splash.png')}
+                resizeMode='contain'
+                style={style.banner}
+            />
 
             <TouchableOpacity>
                 <Text style={style.btn}>Start Now</Text>
