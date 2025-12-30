@@ -10,6 +10,7 @@ import Home from './src/screens/Home';
 import Quiz from './src/screens/Quiz';
 import Result from './src/screens/Result';
 import OnboardingScreen from './src/screens/OnboardingScreen';
+import { StatusBar, View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,11 +23,11 @@ function TabNavigator() {
         tabBarActiveTintColor: '#ffffffff',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
-          backgroundColor: '#2c09ca',
+          backgroundColor: '#1646e4ff',
           height: 60,
           borderRadius: 20,
           position: 'sticky',
-          bottom: 20,
+          bottom: 10,
           width: '90%',
           alignSelf: 'center',
           elevation: 5,
@@ -35,6 +36,7 @@ function TabNavigator() {
           shadowOpacity: 0.1,
           shadowRadius: 5,
         },
+
         tabBarLabelStyle: {
           fontSize: 12,
           padding: 5,
@@ -52,9 +54,9 @@ function TabNavigator() {
               color={color}
             />
           ),
-
         }}
       />
+
       <Tab.Screen
         name="Quiz"
         component={Quiz}
@@ -68,6 +70,7 @@ function TabNavigator() {
           ),
         }}
       />
+
       <Tab.Screen
         name="Result"
         component={Result}
@@ -85,18 +88,24 @@ function TabNavigator() {
   );
 }
 
+
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom']}>
-        <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Splash" component={SplashScreen} />
-            <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-            <Stack.Screen name="Main" component={TabNavigator} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <>
+      <StatusBar
+        barStyle="dark-content"
+      />
+      <SafeAreaProvider>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#E2EAFF' }} edges={['top', 'bottom']}>
+          <NavigationContainer>
+            <Stack.Navigator screenOptions={{ headerShown: false, }}>
+              <Stack.Screen name="Splash" component={SplashScreen} />
+              <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+              <Stack.Screen name="Main" component={TabNavigator} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </>
   );
 }

@@ -1,22 +1,14 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import Title from '../components/Title'
+import { View, StyleSheet } from 'react-native'
+import TopBar from '../components/TopBar'
+import CalendarSchedule from '../components/CalendarSchedule'
+import DoctorsList from '../components/DoctorsList'
 
 const Home = () => {
     return (
         <View style={style.container}>
-            <Title />
-
-            <Image
-                source={require('../assets/splash.png')}
-                resizeMode='contain'
-                style={style.banner}
-            />
-
-            <TouchableOpacity>
-                <Text style={style.btn}>Start Now</Text>
-            </TouchableOpacity>
-
-
+            <TopBar />
+            <CalendarSchedule />
+            <DoctorsList />
         </View>
     )
 }
@@ -25,7 +17,8 @@ export default Home
 
 const style = StyleSheet.create({
     container: {
-        paddingTop: 10
+        flex: 1,
+        paddingTop: 10,
     },
     statusBarStyle: {
         backgroundColor: "black",
